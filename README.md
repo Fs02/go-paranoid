@@ -1,4 +1,4 @@
-# Paranoid
+# GO Paranoid
 Paranoid is utilities supplemental to go panic, it usefull when you want to make your code panic on unhandled error, it also make your test case simpler by reducing the test branch.
 
 ## Usage
