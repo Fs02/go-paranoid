@@ -2,7 +2,7 @@
 Paranoid is utilities supplemental to go panic, it usefull when you want to make your code panic on unhandled error, it also make your test case simpler by reducing the test branch.
 
 ## Usage
-```
+```golang
 package main
 
 import (
@@ -19,7 +19,7 @@ type Transaction struct {
 func retrieve() (Transaction, error) {
 	db, err := gorm.Open("mysql", "root@(127.0.0.1:3306)/db?charset=utf8&parseTime=True&loc=Local")
 	// panic if error
-	paranoid.Panic(err)
+	paranoid.Panic(err, "Error opening database connection")
 
 	trx := Transaction{}
 	query := db.First(&trx, 1000)
@@ -29,7 +29,7 @@ func retrieve() (Transaction, error) {
 	}
 
 	// it'll panic on unknown or untestable error
-	paranoid.Panic(query.Error)
+	paranoid.Panic(query.Error, "Failed when fetching transaction")
 	return trx, nil
 }
 

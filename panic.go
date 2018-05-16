@@ -1,7 +1,9 @@
 package paranoid
 
-func Panic(err error) {
+import "fmt"
+
+func Panic(err error, message string) {
 	if err != nil {
-		panic(err)
+		panic(fmt.Errorf("%s: %v", message, err))
 	}
 }
