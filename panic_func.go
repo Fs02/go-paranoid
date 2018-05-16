@@ -4,9 +4,9 @@ import "fmt"
 
 type fn func()
 
-func PanicFunc(err error, message string, f fn) {
+func PanicFunc(err error, f fn, message string, args ...interface{}) {
 	if err != nil {
 		f()
-		panic(fmt.Errorf("%s: %v", message, err))
+		panic(fmt.Errorf(message+": %v", append(args, err)...))
 	}
 }

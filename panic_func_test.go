@@ -18,7 +18,7 @@ func TestPanicFunc(t *testing.T) {
 		}
 	}()
 
-	paranoid.PanicFunc(errors.New("errors ocurred"), "some context message", func() { called = true })
+	paranoid.PanicFunc(errors.New("errors ocurred"), func() { called = true }, "some context %s", "message")
 }
 
 func TestPanicFuncNil(t *testing.T) {
@@ -32,5 +32,5 @@ func TestPanicFuncNil(t *testing.T) {
 		}
 	}()
 
-	paranoid.PanicFunc(nil, "some context message", func() { called = true })
+	paranoid.PanicFunc(nil, func() { called = true }, "some context message")
 }

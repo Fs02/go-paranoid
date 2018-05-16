@@ -29,7 +29,7 @@ func retrieve() (Transaction, error) {
 	}
 
 	// it'll panic on unknown or untestable error
-	paranoid.Panic(query.Error, "Failed when fetching transaction")
+	paranoid.Panic(query.Error, "Failed when fetching transaction %+v", trx)
 	return trx, nil
 }
 

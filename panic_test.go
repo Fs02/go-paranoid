@@ -14,7 +14,7 @@ func TestPanic(t *testing.T) {
 		}
 	}()
 
-	paranoid.Panic(errors.New("errors ocurred"), "some context message")
+	paranoid.Panic(errors.New("errors ocurred"), "some context %s", "message")
 }
 
 func TestPanicNil(t *testing.T) {
