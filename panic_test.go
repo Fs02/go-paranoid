@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/Fs02/go-paranoid"
+	"github.com/Fs02/paranoid"
 )
 
 func TestPanic(t *testing.T) {
